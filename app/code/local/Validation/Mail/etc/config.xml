@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ *
+ * @category   Inovarti
+ * @package    Inovarti_Validation
+ * @author     Suporte <suporte@inovarti.com.br>
+ */
+ -->
+<config>    
+    <global>
+        <modules>
+            <Inovarti_Validation>
+                <version>0.1.0</version>
+            </Inovarti_Validation>
+        </modules>
+    </global>
+    <frontend>
+        <routers>
+            <validation>
+                <use>standard</use>
+                <args>
+                    <module>Inovarti_Validation</module>
+                    <frontName>validation</frontName>
+                </args>
+            </validation>
+        </routers>
+    </frontend>
+</config> 

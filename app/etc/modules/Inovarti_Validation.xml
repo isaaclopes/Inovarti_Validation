@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ *
+ * @category   Inovarti
+ * @package    Inovarti_Validation
+ * @author     Suporte <suporte@inovarti.com.br>
+ */
+ -->
+<config>
+    <modules>
+        <Inovarti_Validation>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Inovarti_Validation>
+    </modules>
+</config>
