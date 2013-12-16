@@ -38,26 +38,26 @@ class Inovarti_Validation_AjaxController extends Mage_Core_Controller_Front_Acti
         $this->getResponse()->setBody(Zend_Json::encode($data));
     }
 
-    public function check_cpfcnpjAction() {
+    public function check_taxvatAction() {
         $post = $this->getRequest()->getPost();
         if ($post) {
-            $cpfcnpj = $this->getRequest()->getPost('cpfcnpj', false);
+            $taxvat = $this->getRequest()->getPost('taxvat', false);
             $flag = 0;
             $data['result'] = 'clean';
-            $cli = Mage::getModel('customer/customer')->getCollection()->addAttributeToFilter('taxvat', array('eq' => $cpfcnpj));
+            $cli = Mage::getModel('customer/customer')->getCollection()->addAttributeToFilter('taxvat', array('eq' => $taxvat));
             foreach ($cli as $customer) {
                 $dataTaxvat = $customer->getTaxvat();
-                if ($dataTaxvat == $cpfcnpj)
+                if ($dataTaxvat == $taxvat)
                     $flag |= 1;
             }
             if ($flag) {
                 $data['result'] = 'exists';
             } else {
-                $cpfcnpj = preg_replace("/[^0-9]/", "", $cpfcnpj);
-                $cli = Mage::getModel('customer/customer')->getCollection()->addAttributeToFilter('taxvat', array('eq' => $cpfcnpj));
+                $taxvat = preg_replace("/[^0-9]/", "", $taxvat);
+                $cli = Mage::getModel('customer/customer')->getCollection()->addAttributeToFilter('taxvat', array('eq' => $taxvat));
                 foreach ($cli as $customer) {
                     $dataTaxvat = $customer->getTaxvat();
-                    if ($dataTaxvat == $cpfcnpj)
+                    if ($dataTaxvat == $taxvat)
                         $flag |= 1;
                 }
                 if ($flag) {
@@ -66,23 +66,23 @@ class Inovarti_Validation_AjaxController extends Mage_Core_Controller_Front_Acti
             }
             $this->getResponse()->setBody(Zend_Json::encode($data));
         } else {
-            $cpfcnpj = $this->getRequest()->getQuery('cpfcnpj', false);
+            $taxvat = $this->getRequest()->getQuery('taxvat', false);
             $flag = 0;
             $data['result'] = 'clean';
-            $cli = Mage::getModel('customer/customer')->getCollection()->addAttributeToFilter('taxvat', array('eq' => $cpfcnpj));
+            $cli = Mage::getModel('customer/customer')->getCollection()->addAttributeToFilter('taxvat', array('eq' => $taxvat));
             foreach ($cli as $customer) {
                 $dataTaxvat = $customer->getTaxvat();
-                if ($dataTaxvat == $cpfcnpj)
+                if ($dataTaxvat == $taxvat)
                     $flag |= 1;
             }
             if ($flag) {
                 $data['result'] = 'exists';
             } else {
-                $cpfcnpj = preg_replace("/[^0-9]/", "", $cpfcnpj);
-                $cli = Mage::getModel('customer/customer')->getCollection()->addAttributeToFilter('taxvat', array('eq' => $cpfcnpj));
+                $taxvat = preg_replace("/[^0-9]/", "", $taxvat);
+                $cli = Mage::getModel('customer/customer')->getCollection()->addAttributeToFilter('taxvat', array('eq' => $taxvat));
                 foreach ($cli as $customer) {
                     $dataTaxvat = $customer->getTaxvat();
-                    if ($dataTaxvat == $cpfcnpj)
+                    if ($dataTaxvat == $taxvat)
                         $flag |= 1;
                 }
                 if ($flag) {
