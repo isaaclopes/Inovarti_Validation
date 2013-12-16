@@ -1,11 +1,11 @@
 <?php
+
 /**
  *
  * @category   Inovarti
  * @package    Inovarti_Validation
  * @author     Suporte <suporte@inovarti.com.br>
  */
-
 class Inovarti_Validation_AjaxController extends Mage_Core_Controller_Front_Action {
 
     private function _isEmailRegistered($email) {
