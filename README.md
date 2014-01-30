@@ -18,7 +18,7 @@ HTTP://urldosite/validation/ajax/check_email/?email=EMAIL@EMAIL.COM
 JS
 ===================
 
-
+<script type="text/javascript">
 Validation.add('validate-email-exist', '<?php echo $this->__('Please enter a valid email address. For example johndoe@domain.com.') ?>', function(value) {
         if (checkMail(value)) {
             var ok = false;
@@ -77,3 +77,4 @@ Validation.add('validate-email-exist', '<?php echo $this->__('Please enter a val
              Validation.get('validate-taxvat').error = 'O CPF/CNPJ informado \xE9 invalido';
          }
     });
+</script>
