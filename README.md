@@ -15,10 +15,10 @@ HTTP://urldosite/validation/ajax/check_email/?email=EMAIL@EMAIL.COM
 
 
 ===================
-JS
+JS - oculto ver doc no arquivo README.md
 ===================
 
-<script type="text/javascript">
+<script>
 Validation.add('validate-email-exist', '<?php echo $this->__('Please enter a valid email address. For example johndoe@domain.com.') ?>', function(value) {
         if (checkMail(value)) {
             var ok = false;
